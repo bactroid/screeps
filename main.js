@@ -8,7 +8,7 @@ var towers = require('towers');
 
 var minBuilders = 2;
 var minUpgraders = 1;
-var minHarvesters = 10;
+var minHarvesters = 5;
 var minLoaders = 1;
 
 module.exports.loop = function () {
