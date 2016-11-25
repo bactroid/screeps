@@ -24,13 +24,13 @@ module.exports.loop = function () {
   // Return a body array based on available energy
   function getBodyArray() {
     body = [];
-    totalEnergy = Game.spawns.Spawn1.room.energyAvailable;
+    totalEnergy = Game.spawns.Spawn1.room.energyCapacityAvailable;
 
     // Determine how many [WORK,CARRY,MOVE,MOVE] we can fit.
     // WORK = 100
     // CARRY = 50
     // MOVE = 50
-    availableBodyChunks = Math.floor(totalEnergy / 250);
+    availableBodyChunks = Math.floor(totalEnergy / 250) - 1;
 
     for (let i = 0; i < availableBodyChunks; i++) {
       body.push(WORK);
