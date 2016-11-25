@@ -2,12 +2,14 @@ var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
 var roleRepairer = require('role.repairer');
+var roleLoader = require('role.loader');
 
 var towers = require('towers');
 
 var minBuilders = 2;
 var minUpgraders = 1;
 var minHarvesters = 10;
+var minLoaders = 1;
 
 module.exports.loop = function () {
   // Return amount of creeps of a given type
@@ -30,7 +32,7 @@ module.exports.loop = function () {
     // WORK = 100
     // CARRY = 50
     // MOVE = 50
-    availableBodyChunks = Math.floor(totalEnergy / 250) - 1;
+    availableBodyChunks = Math.floor(totalEnergy / 250);
 
     for (let i = 0; i < availableBodyChunks; i++) {
       body.push(WORK);
@@ -55,6 +57,7 @@ module.exports.loop = function () {
   upgraderAmount = getWorkerAmount('upgrader');
   harvesterAmount = getWorkerAmount('harvester');
   repairerAmount = getWorkerAmount('repairer');
+  loaderAmount = getWorkerAmount('loader');
   var name = undefined;
 
   // BUILDING CREEPS
@@ -74,6 +77,11 @@ module.exports.loop = function () {
   // Make sure we have a few dedicated builders
   else if (builderAmount < minBuilders) {
     name = Game.spawns['Spawn1'].createCreep(bodyArray, undefined, {role: 'builder', work: true});
+  }
+
+  // We want some dedicated tower loaders
+  else if (loaderAmount < minLoaders) {
+    name = Game.spawns['Spawn1'].createCreep(bodyArray, undefined, {role: 'loader', work: true});
   }
 
   // Otherwise, make repairers
