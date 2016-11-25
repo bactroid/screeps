@@ -24,7 +24,7 @@ module.exports.loop = function () {
   // Return a body array based on available energy
   function getBodyArray() {
     body = [];
-    totalEnergy = Game.spawns.Spawn1.room.energyCapacityAvailable;
+    totalEnergy = Game.spawns.Spawn1.room.energyAvailable;
 
     // Determine how many [WORK,CARRY,MOVE,MOVE] we can fit.
     // WORK = 100
