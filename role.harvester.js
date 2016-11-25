@@ -19,8 +19,8 @@ module.exports = {
         
     else {
       structures = creep.room.find(FIND_MY_STRUCTURES, {
-        filter: function (object) {
-          return object.energy < object.energyCapacity;
+        filter: function (obj) {
+          return obj.structureType !== STRUCTURE_TOWER && obj.energy < obj.energyCapacity;
         }
       });
 
