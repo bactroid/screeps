@@ -1,3 +1,5 @@
+var roleHarvester = require('role.harvester');
+
 module.exports = {
   run: function(creep) {
     if (creep.memory.work === true && creep.carry.energy === creep.carryCapacity) {
@@ -24,8 +26,16 @@ module.exports = {
         }
       });
 
-      if (creep.transfer(structures[0], RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
-        creep.moveTo(structures[0]);
+      if (structures.length !== 0) {
+        if (creep.transfer(structures[0], RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
+          creep.moveTo(structures[0]);
+        }
+      }
+
+      // If there are no towers to be filled, act like a harvester.
+      else {
+        creep.say("No towers.");
+        roleHarvester.run(creep);
       }
     }
   }
