@@ -34,7 +34,6 @@ module.exports = {
 
       // If there are no towers to be filled, act like a harvester.
       else {
-        creep.say("No towers.");
         roleHarvester.run(creep);
       }
     }
