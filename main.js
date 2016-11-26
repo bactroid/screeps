@@ -10,6 +10,7 @@ var minBuilders = 2;
 var minUpgraders = 1;
 var minHarvesters = 5;
 var minLoaders = 1;
+var totalEnergy = Game.spawns.Spawn1.room.energyCapacityAvailable;
 
 module.exports.loop = function () {
   // Return amount of creeps of a given type
@@ -26,7 +27,6 @@ module.exports.loop = function () {
   // Return a body array based on available energy
   function getBodyArray() {
     body = [];
-    totalEnergy = Game.spawns.Spawn1.room.energyCapacityAvailable;
 
     // Determine how many [WORK,CARRY,MOVE,MOVE] we can fit.
     // WORK = 100
