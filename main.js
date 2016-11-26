@@ -119,6 +119,10 @@ module.exports.loop = function () {
     if (creep.memory.role === 'repairer') {
       roleRepairer.run(creep);
     }
+
+    if (creep.memory.role === 'loader') {
+      roleLoader.run(creep);
+    }
   }
 
   for (let room in Game.rooms) {
