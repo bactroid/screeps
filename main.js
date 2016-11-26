@@ -3,14 +3,21 @@ var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
 var roleRepairer = require('role.repairer');
 var roleLoader = require('role.loader');
-
 var towers = require('towers');
+
+var totalEnergy = Game.spawns.Spawn1.room.energyCapacityAvailable;
+
+if (totalEnergy < 600) {
+  var minHarvesters = 10;
+}
+
+else { 
+  var minHarvesters = 5;
+}
 
 var minBuilders = 2;
 var minUpgraders = 1;
-var minHarvesters = 5;
 var minLoaders = 1;
-var totalEnergy = Game.spawns.Spawn1.room.energyCapacityAvailable;
 
 module.exports.loop = function () {
   // Return amount of creeps of a given type
