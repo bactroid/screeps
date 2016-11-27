@@ -17,7 +17,7 @@ else {
 
 var minBuilders = 2;
 var minUpgraders = 1;
-var minLoaders = 1;
+var minLoaders = 2;
 
 module.exports.loop = function () {
   // Return amount of creeps of a given type
