@@ -12,12 +12,12 @@ if (totalEnergy < 600) {
 }
 
 else { 
-  var minHarvesters = 5;
+  var minHarvesters = 4;
 }
 
 var minBuilders = 2;
 var minUpgraders = 1;
-var minLoaders = 1;
+var minLoaders = 2;
 
 module.exports.loop = function () {
   // Return amount of creeps of a given type
