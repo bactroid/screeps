@@ -29,7 +29,7 @@ module.exports = {
 
         // Get damaged structure
         var sites = Game.rooms[roomName].find(FIND_STRUCTURES, {
-          filter: obj => obj.hits < (obj.hitsMax / 10) && obj.structureType === STRUCTURE_WALL
+          filter: obj => obj.hits < 500000 && obj.structureType === STRUCTURE_WALL
         });
 
         sites.sort(compareByHealth);
